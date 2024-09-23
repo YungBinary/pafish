@@ -86,8 +86,9 @@ int cpu_rdtsc() {
 	int i;
 	unsigned long long avg = 0;
 	for (i = 0; i < 10; i++) {
-		avg = avg + rdtsc_diff();
-		printf("rdtsc_diff == %llu\n", avg);
+		unsigned long long diff = rdtsc_diff();
+		printf("rdtsc_diff == %llu\n", diff);
+		avg = avg + diff;
 		Sleep(500);
 	}
 	avg = avg / 10;
@@ -100,8 +101,9 @@ int cpu_rdtsc_force_vmexit() {
 	int i;
 	unsigned long long avg = 0;
 	for (i = 0; i < 10; i++) {
-		avg = avg + rdtsc_diff_vmexit();
-		printf("rdtsc_diff_vmexit == %llu\n", avg);
+		unsigned long long diff = rdtsc_diff_vmexit();
+		printf("rdtsc_diff_vmexit == %llu\n", diff);
+		avg = avg + diff;
 		Sleep(500);
 	}
 	avg = avg / 10;
