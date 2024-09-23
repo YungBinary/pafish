@@ -91,7 +91,7 @@ int cpu_rdtsc() {
 		Sleep(500);
 	}
 	avg = avg / 10;
-	printf("Average was %llu", avg);
+	printf("Average was %llu\n", avg);
 	return (avg < 750 && avg > 0) ? FALSE : TRUE;
 }
 
