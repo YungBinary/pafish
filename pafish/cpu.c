@@ -82,12 +82,12 @@ static inline int cpuid_hv_bit() {
 }
 
 int cpu_rdtsc() {
-	printf("Now running cpu_rdtsc...");
+	printf("Now running cpu_rdtsc...\n");
 	int i;
 	unsigned long long avg = 0;
 	for (i = 0; i < 10; i++) {
 		avg = avg + rdtsc_diff();
-		printf("rdtsc_diff == %llu", avg);
+		printf("rdtsc_diff == %llu\n", avg);
 		Sleep(500);
 	}
 	avg = avg / 10;
@@ -96,16 +96,16 @@ int cpu_rdtsc() {
 }
 
 int cpu_rdtsc_force_vmexit() {
-	printf("Now running cpu_rdtsc_force_vmexit...");
+	printf("Now running cpu_rdtsc_force_vmexit...\n");
 	int i;
 	unsigned long long avg = 0;
 	for (i = 0; i < 10; i++) {
 		avg = avg + rdtsc_diff_vmexit();
-		printf("rdtsc_diff_vmexit == %llu", avg);
+		printf("rdtsc_diff_vmexit == %llu\n", avg);
 		Sleep(500);
 	}
 	avg = avg / 10;
-	printf("Average was %llu", avg);
+	printf("Average was %llu\n", avg);
 	return (avg < 1000 && avg > 0) ? FALSE : TRUE;
 }
 
